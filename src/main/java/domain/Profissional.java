@@ -1,11 +1,18 @@
 package domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+@ToString
 public class Profissional implements Serializable {
 
     @Id
@@ -14,6 +21,4 @@ public class Profissional implements Serializable {
 
     private String nome;
 
-    @ManyToOne
-    private Equipe equipe;
 }
