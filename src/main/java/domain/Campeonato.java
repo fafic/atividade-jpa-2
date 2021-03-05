@@ -15,6 +15,9 @@ import java.util.List;
 @Data
 @Builder
 @ToString
+@NamedQueries({
+        @NamedQuery(name = "equipesDoCampeonato", query = "select c.equipes from Campeonato c where c.nome=:nomeCampeonato")
+})
 public class Campeonato implements Serializable {
 
     @Id

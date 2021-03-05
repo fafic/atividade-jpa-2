@@ -12,7 +12,11 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@ToString
+
+@NamedQueries({
+        @NamedQuery(name = "equipeByName", query = "select e from Equipe e where e.nome =:equipe "),
+        @NamedQuery(name = "campeonatoByTeam", query = "select e.campeonatos from Equipe e where e.nome=:equipe ")
+})
 public class Equipe implements Serializable {
 
     @Id
@@ -36,4 +40,6 @@ public class Equipe implements Serializable {
             @JoinColumn(name = "campeonato_id")
     })
     private List<Campeonato> campeonatos;
+
+
 }

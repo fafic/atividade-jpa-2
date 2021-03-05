@@ -11,7 +11,7 @@ public class GenericDao <T>{
 
     public void save(T entity){
         em.getTransaction().begin();
-        em.persist(entity);
+        em.merge(entity);
         em.getTransaction().commit();
        // em.close();
     }
